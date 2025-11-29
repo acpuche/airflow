@@ -1,0 +1,7 @@
+# Carpetas de airflow
+/logs
+/config
+/plugins
+
+# Varaibles de entorno
+.env
