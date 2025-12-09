@@ -2,6 +2,7 @@
 /logs
 /config
 /plugins
+/dags/__pycache__
 
 # Varaibles de entorno
 .env
