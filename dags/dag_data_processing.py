@@ -28,8 +28,10 @@ with DAG(
     dataset = "yellow_tripdata"
 
     #Payloads
-    # Downloads to Landing
     lambda_payload_dict = {
+    """Set the parameters for downloading the dataset from the website and copying 
+    it to Landing
+    """
         "dataset" : dataset,
         "date" : "{{ data_interval_start.strftime('%Y-%m') }}",
         "s3_folder" : "landing",
@@ -39,8 +41,9 @@ with DAG(
     lambda_payload = json.dumps(lambda_payload_dict)
 
     #Tasks
-    #1. Lambda ingestion 
     lambda_ingest = LambdaInvokeFunctionOperator(
+    """Lambda ingestion for one month
+    """
         task_id="dataset_extraction",
         aws_conn_id="aws_connection",
         region_name="us-east-2",
